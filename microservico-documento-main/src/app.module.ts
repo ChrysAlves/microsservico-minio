@@ -3,6 +3,7 @@ import { ConfigModule } from '@nestjs/config';
 import { DownloadModule } from './download/download.module';
 import { UploadModule } from './upload/upload.module';
 import { KafkaModule } from './messaging/kafka.module';
+import { DeleteModule } from './delete/delete.module';
 
 @Module({
   imports: [
@@ -13,6 +14,7 @@ import { KafkaModule } from './messaging/kafka.module';
     UploadModule,
     DownloadModule,
     KafkaModule,
+    DeleteModule,
   ],
 })
 export class AppModule {}
