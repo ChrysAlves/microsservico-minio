@@ -24,18 +24,8 @@ Este microsserviço, construído com **NestJS**, é responsável pelo gerenciame
 
 Para rodar este microsserviço localmente, você precisará ter o [Docker](https://www.docker.com/products/docker-desktop/) e o [Node.js](https://nodejs.org/) instalados em sua máquina.
 
-1.  **Clone o repositório:**
-    ```bash
-    git clone [URL_DO_SEU_REPOSITORIO]
-    cd microservico-documento-main # Ou o nome do seu diretório
-    ```
 
-2.  **Instale as dependências do Node.js:**
-    ```bash
-    npm install
-    ```
-
-3.  **Configure as variáveis de ambiente:**
+1.  **Configure as variáveis de ambiente:**
     Crie um arquivo `.env` na raiz do projeto com as seguintes variáveis:
     ```env
     # --- Variáveis de Ambiente para S3 (MinIO) ---
@@ -54,7 +44,7 @@ Para rodar este microsserviço localmente, você precisará ter o [Docker](https
     PORT=3000
     ```
 
-4.  **Inicie os serviços de infraestrutura com Docker Compose:**
+2.  **Inicie os serviços de infraestrutura com Docker Compose:**
     Certifique-se de que seu arquivo `docker-compose.yml` está atualizado para incluir **MinIO, ZooKeeper e Kafka**:
     ```yaml
     # docker-compose.yml (Versão completa com MinIO, Zookeeper e Kafka)
@@ -93,7 +83,7 @@ Para rodar este microsserviço localmente, você precisará ter o [Docker](https
     ```
     **Aguarde alguns segundos (30s-1min) para que Kafka e ZooKeeper inicializem completamente.** Você pode verificar os logs com `docker-compose logs -f kafka` até ver mensagens de estabilidade.
 
-5.  **Inicie a aplicação NestJS:**
+3.  **Inicie a aplicação NestJS:**
     ```bash
     npm run start:dev
     ```
@@ -106,6 +96,3 @@ Uma vez que a aplicação esteja rodando, você pode acessar a documentação in
 
 Use esta interface para explorar todos os endpoints de **upload, download e delete**, preencher parâmetros e enviar requisições para testar as funcionalidades manualmente.
 
-## 🤝 Contribuição
-
-Sinta-se à vontade para contribuir com melhorias, correções de bugs ou novas funcionalidades.
