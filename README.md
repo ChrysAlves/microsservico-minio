@@ -19,7 +19,6 @@ Este microsserviço, construído com **NestJS**, é responsável pelo gerenciame
 * **KafkaJS**: Cliente Node.js para Kafka.
 * **AWS SDK for JavaScript v3**: Utilizado para interagir com a API compatível com S3 do MinIO.
 * **Swagger (OpenAPI)**: Para documentação interativa da API e testes manuais via interface web.
-* **Jest & Supertest**: Para testes unitários e de integração/E2E.
 
 ## ⚙️ Configuração do Ambiente (Desenvolvimento Local)
 
@@ -56,9 +55,9 @@ Para rodar este microsserviço localmente, você precisará ter o [Docker](https
     ```
 
 4.  **Inicie os serviços de infraestrutura com Docker Compose:**
-    Certifique-se de que seu arquivo `docker-compose.yml` está atualizado para incluir **MinIO, ZooKeeper e Kafka** (conforme a discussão anterior):
+    Certifique-se de que seu arquivo `docker-compose.yml` está atualizado para incluir **MinIO, ZooKeeper e Kafka**:
     ```yaml
-    # docker-compose.yml (Exemplo simplificado, certifique-se de ter a versão completa)
+    # docker-compose.yml (Versão completa com MinIO, Zookeeper e Kafka)
     version: '3.8'
     services:
       minio:
@@ -100,27 +99,12 @@ Para rodar este microsserviço localmente, você precisará ter o [Docker](https
     ```
     O servidor será iniciado e você verá uma mensagem no console indicando a porta e a URL do Swagger.
 
-## 📄 Documentação da API (Swagger)
+## 📄 Documentação e Testes Manuais da API (Swagger)
 
 Uma vez que a aplicação esteja rodando, você pode acessar a documentação interativa da API (Swagger UI) em:
 [http://localhost:3000/api](http://localhost:3000/api)
 
-Use esta interface para explorar os endpoints e testar as funcionalidades manualmente.
-
-## 🧪 Executando os Testes E2E
-
-Os testes end-to-end (E2E) validam a integração do microsserviço com o MinIO.
-
-1.  **Certifique-se de que o MinIO esteja em execução** (`docker-compose ps` deve mostrar `minio` como `Up`).
-2.  **Crie o bucket de teste `test-bucket` no MinIO:**
-    Acesse o MinIO Console em `http://localhost:9001` com as credenciais `admin`/`admin123` e crie o bucket `test-bucket`.
-3.  **Faça o upload do arquivo de teste:**
-    Faça o upload de um arquivo chamado `test-file-for-download.pdf` para o `test-bucket` no MinIO Console.
-4.  **Execute os testes E2E:**
-    ```bash
-    npm run test:e2e
-    ```
-    Você deve ver `PASS` para todos os testes.
+Use esta interface para explorar todos os endpoints de **upload, download e delete**, preencher parâmetros e enviar requisições para testar as funcionalidades manualmente.
 
 ## 🤝 Contribuição
 
